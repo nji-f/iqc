@@ -1,1 +1,219 @@
+:root {
+    --glass: rgba(255, 255, 255, 0.05);
+    --border: rgba(255, 255, 255, 0.1);
+    --accent: #00ffcc;
+}
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 30px 20px;
+    animation: fadeInDown 1s ease both;
+}
+
+.creator-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    backdrop-filter: blur(20px);
+}
+
+.dot-status {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.creator-info {
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: clamp(3.5rem, 15vw, 5.5rem);
+    font-weight: 800;
+    line-height: 0.8;
+    letter-spacing: -4px;
+    background: linear-gradient(180deg, #fff 40%, #444 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: 0.2s;
+}
+
+.hero p {
+    margin: 15px 0 35px 0;
+    color: #888;
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: 0.4s;
+}
+
+.input-box {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    padding: 8px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    backdrop-filter: blur(30px);
+    transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: 0.6s;
+}
+
+.input-box:focus-within {
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+input {
+    flex: 1;
+    padding: 0 25px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.btn-gen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    background: #fff;
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-gen:hover {
+    transform: rotate(90deg);
+    background: var(--accent);
+}
+
+#output {
+    display: none;
+    width: 100%;
+    margin-top: 40px;
+    animation: springIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+.preview-wrap {
+    padding: 10px;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 35px;
+}
+
+#resultImg {
+    display: block;
+    width: 100%;
+    border-radius: 25px;
+}
+
+.btn-save {
+    width: 100%;
+    padding: 18px;
+    background: #fff;
+    color: #000;
+    font-weight: 800;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.loader {
+    display: none;
+    width: 30px;
+    height: 30px;
+    margin: 30px auto;
+    border: 2px solid var(--glass);
+    border-top: 2px solid #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+footer {
+    padding: 30px;
+    color: #333;
+    font-size: 0.6rem;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); filter: blur(10px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes springIn {
+    from { opacity: 0; transform: scale(0.9) translateY(40px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@media (min-width: 768px) {
+    .wrapper { max-width: 500px; }
+    .hero p { margin-bottom: 45px; }
+}
