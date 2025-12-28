@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iphone Quote</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="creator-badge">
+            <div class="dot-status"></div>
+            <span class="creator-info">CREATED BY NJI</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="wrapper">
+            <div class="hero">
+                <h1>IQC</h1>
+                <p>buat fake chat tampilan seperti iphone buat jj kalian 😋</p>
+            </div>
+
+            <div class="input-box">
+                <input type="text" id="quoteInput" placeholder="masukin kata kata" autocomplete="off">
+                <button class="btn-gen" onclick="generate()" id="btnAction">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="loader" id="loader"></div>
+
+            <div id="output">
+                <div class="preview-wrap">
+                    <img id="resultImg" src="" alt="preview" crossorigin="anonymous">
+                </div>
+                <button class="btn-save" onclick="downloadViaCanvas()">SAVE TO GALLERY</button>
+            </div>
+        </div>
+    </div>
+
+    <canvas id="helperCanvas" style="display:none;"></canvas>
+
+    <footer>
+        NJI &copy; 2025
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
